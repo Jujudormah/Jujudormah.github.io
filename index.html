@@ -1,357 +1,1058 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Gustavo Diaz | Software Engineer</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/14.2.0/smooth-scroll.min.js" integrity="sha256-/k5n1rmutzb2PSqvtV77T+xHa9plhfEjb/mpn1RpMzA=" crossorigin="anonymous"></script>
-	<link href="style.css" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gustavo Diaz | Software Engineer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-<section id="section-top">
-<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #9370f4">
-<div class="container-fluid">
-	<a class="navbar-brand" href="#section-top" style="font-size: 160%;">Gustavo Diaz</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarResponsive">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="#section-top">Home</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#section-portfolio">Portfolio</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#section-about">About</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#section-skills">Skills</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#section-connect">Connect</a>
-			</li>
-		</ul>
-	</div>
-</div>
-</nav>
-</section>
+      :root {
+        --ink: #0f0e0d;
+        --cream: #f5f1ea;
+        --warm: #ede8df;
+        --accent: #c45c2e;
+        --accent2: #4a7c6f;
+        --muted: #7a7570;
+        --card-bg: #ffffff;
+        --nav-h: 68px;
+      }
 
-<div id="slides" class="carousel slide" data-ride="carousel">
-<ul class="carousel-indicators">
-	<li data-target="#slides" data-slide-to="0" class="active"></li>
-	<li data-target="#slides" data-slide-to="1"></li>
-	<li data-target="#slides" data-slide-to="2"></li>
-</ul>
-<div class="carousel-inner">
-	<div class="carousel-item active">
-        <img src="img/background.png">
-        <div class="carousel-caption">
-            <h1 class="display-2">Gustavo Diaz</h1>
-            <hr class="light">
-            <h3>Software Engineer</h3>
-            <a href="#section-portfolio"><button type="button" class="btn btn-outline-light btn-lg">Welcome!</button></a>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--cream);
+        color: var(--ink);
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1000;
+        opacity: 0.5;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--nav-h);
+        background: var(--cream);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3rem;
+        z-index: 100;
+        backdrop-filter: blur(8px);
+      }
+
+      .nav-brand {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.4rem;
+        color: var(--ink);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+      .nav-toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--ink);
+        transition: all 0.3s;
+      }
+
+      #hero {
+        min-height: 100vh;
+        padding-top: var(--nav-h);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding-left: 8vw;
+        padding-right: 8vw;
+        gap: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #hero::after {
+        content: "";
+        position: absolute;
+        right: -10vw;
+        top: 10vh;
+        width: 55vw;
+        height: 55vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(196, 92, 46, 0.12) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .hero-text {
+        animation: fadeUp 0.9s ease both;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1.2rem;
+      }
+
+      .hero-name {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-name em {
+        font-style: italic;
+        color: var(--accent2);
+      }
+
+      .hero-sub {
+        font-size: 1.05rem;
+        font-weight: 300;
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 480px;
+        margin-bottom: 2.5rem;
+      }
+
+      .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: var(--ink);
+        color: var(--cream);
+        text-decoration: none;
+        padding: 0.85rem 2rem;
+        font-size: 0.88rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        transition:
+          background 0.25s,
+          transform 0.2s;
+      }
+
+      .hero-cta:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeUp 0.9s 0.2s ease both;
+      }
+
+      .hero-card {
+        background: var(--warm);
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        padding: 2rem;
+        position: relative;
+        max-width: 380px;
+        width: 100%;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        top: 12px;
+        right: -12px;
+        width: 100%;
+        height: 100%;
+        border: 1.5px solid var(--accent);
+        z-index: -1;
+      }
+
+      .stat-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .stat {
+        border-left: 3px solid var(--accent);
+        padding-left: 1rem;
+      }
+      .stat-num {
+        font-family: "DM Serif Display", serif;
+        font-size: 2.2rem;
+        line-height: 1;
+        color: var(--ink);
+      }
+      .stat-label {
+        font-size: 0.75rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 0.3rem;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .tag {
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding: 0.3rem 0.75rem;
+        background: var(--cream);
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        color: var(--ink);
+        letter-spacing: 0.04em;
+      }
+
+      section {
+        padding: 6rem 8vw;
+      }
+      section + section {
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .section-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.6rem;
+      }
+
+      .section-title {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        letter-spacing: -0.02em;
+        margin-bottom: 3rem;
+      }
+
+      #portfolio {
+        background: var(--cream);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .project-card {
+        background: var(--card-bg);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-thumb {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        background: var(--warm);
+      }
+
+      .project-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover .project-thumb img {
+        transform: scale(1.07);
+      }
+
+      .project-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 14, 13, 0.75);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .overlay-link {
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.5rem 1.2rem;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+
+      .overlay-link:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .project-body {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-title {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .project-desc {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.65;
+        flex: 1;
+        margin-bottom: 1rem;
+      }
+
+      .project-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .tool-chip {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.6rem;
+        background: var(--warm);
+        color: var(--muted);
+      }
+
+      .future-card {
+        background: var(--warm);
+        border: 1.5px dashed rgba(0, 0, 0, 0.15);
+      }
+
+      .future-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .future-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      .future-list li::before {
+        content: "→";
+        color: var(--accent);
+        flex-shrink: 0;
+        margin-top: 0.05em;
+      }
+
+      #about {
+        background: var(--warm);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+
+      .about-text p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #3a3632;
+        margin-bottom: 1.2rem;
+      }
+
+      .about-img {
+        position: relative;
+      }
+
+      .about-img img {
+        width: 100%;
+        display: block;
+        filter: grayscale(20%);
+      }
+
+      .about-img::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        right: -12px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid var(--accent2);
+        z-index: -1;
+      }
+
+      #skills {
+        background: var(--cream);
+      }
+
+      .skills-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      .skill-group {
+        margin-bottom: 2.5rem;
+      }
+
+      .skill-group-title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1.2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .skill-pill {
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 0.45rem 1rem;
+        border: 1.5px solid rgba(0, 0, 0, 0.12);
+        background: var(--card-bg);
+        color: var(--ink);
+        transition: all 0.2s;
+      }
+
+      .skill-pill:hover {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .skill-pill.familiar {
+        background: transparent;
+        color: var(--muted);
+        border-color: rgba(0, 0, 0, 0.08);
+      }
+
+      .skill-pill.familiar:hover {
+        border-color: var(--accent2);
+        background: var(--accent2);
+        color: #fff;
+      }
+
+      .skills-img img {
+        width: 100%;
+        display: block;
+      }
+
+      #connect {
+        background: var(--ink);
+        color: var(--cream);
+        text-align: center;
+      }
+
+      #connect .section-label {
+        color: var(--accent);
+      }
+
+      #connect .section-title {
+        color: var(--cream);
+        margin-bottom: 1rem;
+      }
+
+      .connect-sub {
+        font-size: 1rem;
+        color: rgba(245, 241, 234, 0.6);
+        max-width: 480px;
+        margin: 0 auto 3rem;
+        line-height: 1.7;
+      }
+
+      .connect-email {
+        display: inline-block;
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        color: var(--cream);
+        text-decoration: none;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 0.2rem;
+        margin-bottom: 3rem;
+        transition: color 0.2s;
+      }
+
+      .connect-email:hover {
+        color: var(--accent);
+      }
+
+      .social-row {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .social-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: rgba(245, 241, 234, 0.7);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border: 1px solid rgba(245, 241, 234, 0.2);
+        padding: 0.75rem 1.5rem;
+        transition: all 0.25s;
+      }
+
+      .social-btn:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      footer {
+        background: #0a0908;
+        color: rgba(245, 241, 234, 0.4);
+        padding: 1.5rem 8vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.78rem;
+        letter-spacing: 0.04em;
+      }
+
+      footer a {
+        color: rgba(245, 241, 234, 0.4);
+        text-decoration: none;
+      }
+      footer a:hover {
+        color: var(--accent);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          padding: 0 1.5rem;
+        }
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: var(--nav-h);
+          left: 0;
+          right: 0;
+          background: var(--cream);
+          padding: 1.5rem 2rem;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+          gap: 1.2rem;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+
+        #hero {
+          grid-template-columns: 1fr;
+          padding-top: calc(var(--nav-h) + 3rem);
+          padding-bottom: 4rem;
+          text-align: center;
+        }
+        .hero-sub {
+          margin: 0 auto 2.5rem;
+        }
+        .hero-cta {
+          margin: 0 auto;
+        }
+        .hero-visual {
+          display: none;
+        }
+        #hero::after {
+          display: none;
+        }
+
+        .about-grid,
+        .skills-layout {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .skills-img {
+          display: none;
+        }
+      }
+
+      @media (max-width: 600px) {
+        section {
+          padding: 4rem 6vw;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          flex-direction: column;
+          gap: 0.6rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="nav-brand" href="#hero">Gustavo Diaz</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#connect">Connect</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <section id="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Software Engineer · Los Angeles, CA</p>
+        <h1 class="hero-name">Gustavo<br /><em>Diaz</em></h1>
+        <p class="hero-sub">
+          Computer Science graduate from CSUSB building clean, user-focused web
+          experiences with JavaScript, React, and modern tooling.
+        </p>
+        <a href="#portfolio" class="hero-cta"
+          >View my work
+          <i class="fas fa-arrow-right" style="font-size: 0.8em"></i
+        ></a>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="stat-row">
+            <div class="stat">
+              <div class="stat-num">4+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">2+</div>
+              <div class="stat-label">Years coding</div>
+            </div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">JavaScript</span>
+            <span class="tag">React</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">C++</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">SQL</span>
+          </div>
         </div>
-	</div>
-	<div class="carousel-item">
-        <img src="img/CSUSB.png">
-	</div>
-	<div class="carousel-item">
-        <img src="img/snowRecropped.png">
-	</div>
-</div>
-</div>
+      </div>
+    </section>
 
-<div class="container-fluid">
-	<div class="row jumbotron">
-		<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-			<p class="lead text-center"></p>
-		</div>
-	</div>
-</div>
-
-<section id="section-portfolio">
-<div class="container-fluid padding">
-<div class="row welcome text-center">
-    <div class="col-12">
-    	<h1 class="display-4">Portfolio</h1>
-    </div>
-    <hr> </hr>
-    <div class="col-12">
-    	<p class="lead"></p>
-    </div>
-</div>
-</div>
-
-<div class="container-fluid padding">
-    <div class="row padding">
-        <div class="col-md-4">
-        <div class="card">
-            <div class="hovereffect">
-                <img class="card-img-top" src="img/BankApp.png" alt="">
-                <div class="overlay">
-                <h2>Bank App</h2>
-                <a class="info" href="https://github.com/Jujudormah/banking-app">See the code</a>
-                </div>
+    <section id="portfolio">
+      <div class="reveal">
+        <p class="section-label">My work</p>
+        <h2 class="section-title">Portfolio</h2>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-thumb">
+            <img src="img/BankApp.png" alt="Bank App" />
+            <div class="project-overlay">
+              <a
+                class="overlay-link"
+                href="https://github.com/Jujudormah/banking-app"
+                target="_blank"
+                >View Code</a
+              >
             </div>
-        
-            <div class="card-body">
-                <h4 class="card-title">Bank App</h4>
-        	    <p class="card-text">Built a banking web application with user authentication (login/signup), interactive dashboard, and financial tools such as an investment calculator, simulating real-world banking workflows.</p>
-        	    <p class="card-text">Tools: JavaScript, HTML, CSS</p>
-        	    <a href="https://github.com/Jujudormah/banking-app" class="btn btn-outline-secondary"> See the code</a>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Bank App</h3>
+            <p class="project-desc">
+              Banking web application with user authentication, interactive
+              dashboard, and a built-in investment calculator simulating
+              real-world financial workflows.
+            </p>
+            <div class="project-tools">
+              <span class="tool-chip">JavaScript</span>
+              <span class="tool-chip">HTML</span>
+              <span class="tool-chip">CSS</span>
             </div>
+          </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card">
-            <div class="hovereffect">
-                <img class="card-img-top" src="img/Forkify.png" alt="">
-                <div class="overlay">
-                <h2>Forkify App</h2>
-                <a class="info" href="https://github.com/Jujudormah/Forkify-App">See the code</a>
-                <a class="info" href="https://forkify-gdiaz.netlify.app/">See the live site</a>
-                </div>
+        <div class="project-card reveal">
+          <div class="project-thumb">
+            <img src="img/Forkify.png" alt="Forkify App" />
+            <div class="project-overlay">
+              <a
+                class="overlay-link"
+                href="https://github.com/Jujudormah/Forkify-App"
+                target="_blank"
+                >View Code</a
+              >
+              <a
+                class="overlay-link"
+                href="https://forkify-gdiaz.netlify.app/"
+                target="_blank"
+                >Live Site</a
+              >
             </div>
-        
-            <div class="card-body">
-                <h4 class="card-title">Forkify App</h4>
-        	    <p class="card-text">A recipe search application that allows users to find and save recipes based on their preferences.</p>
-        	    <p class="card-text">Tools: JavaScript, HTML, CSS</p>
-        	    <a href="https://github.com/Jujudormah/Forkify-App" class="btn btn-outline-secondary"> See the code</a>
-        	    <a href="https://forkify-gdiaz.netlify.app/" class="btn btn-outline-secondary"> See the live site</a>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Forkify App</h3>
+            <p class="project-desc">
+              A recipe search application that lets users discover and bookmark
+              recipes based on their preferences, built with a modern JavaScript
+              architecture.
+            </p>
+            <div class="project-tools">
+              <span class="tool-chip">JavaScript</span>
+              <span class="tool-chip">HTML</span>
+              <span class="tool-chip">CSS</span>
             </div>
+          </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card">
-            <div class="hovereffect">
-                <img class="card-img-top" src="img/CloneProject.png" alt="">
-                <div class="overlay">
-                <h2>Clone Line Functionality</h2>
-                <a class="info" href="https://github.com/Jujudormah/Line-Manipulation-Functionality">See the code</a>
-                </div>
+        <div class="project-card reveal">
+          <div class="project-thumb">
+            <img src="img/CloneProject.png" alt="Clone Line Functionality" />
+            <div class="project-overlay">
+              <a
+                class="overlay-link"
+                href="https://github.com/Jujudormah/Line-Manipulation-Functionality"
+                target="_blank"
+                >View Code</a
+              >
             </div>
-        
-            <div class="card-body">
-                <h4 class="card-title">Clone Line Functionality</h4>
-        	    <p class="card-text">Developed front-end functionality for a warehouse management system, allowing for line duplication, deletion, addition, and splitting.</p>
-        	    <p class="card-text">Tools: JavaScript, HTML, CSS</p>
-        	    <a href="https://github.com/Jujudormah/Line-Manipulation-Functionality" class="btn btn-outline-secondary"> See the code</a> 
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Clone Line Functionality</h3>
+            <p class="project-desc">
+              Front-end tooling for a warehouse management system — enabling
+              line duplication, deletion, addition, and intelligent splitting
+              directly in the browser.
+            </p>
+            <div class="project-tools">
+              <span class="tool-chip">JavaScript</span>
+              <span class="tool-chip">HTML</span>
+              <span class="tool-chip">CSS</span>
             </div>
+          </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card">
-            <div class="hovereffect">
-                <img class="card-img-top" src="img/ChartJS.png" alt="">
-                <div class="overlay">
-                <h2>Chart.js</h2>
-                <a class="info" href="https://github.com/Jujudormah/ChartJS-Implementation">See the code</a>
-                </div>
+        <div class="project-card reveal">
+          <div class="project-thumb">
+            <img src="img/ChartJS.png" alt="Chart.js Implementation" />
+            <div class="project-overlay">
+              <a
+                class="overlay-link"
+                href="https://github.com/Jujudormah/ChartJS-Implementation"
+                target="_blank"
+                >View Code</a
+              >
             </div>
-        
-            <div class="card-body">
-                <h4 class="card-title">Chart.js Implementation</h4>
-        	    <p class="card-text">Visually represented, and implemented datasets in a web application through the use of Chart.js library.</p>
-        	    <p class="card-text">Tools: JavaScript, HTML, CSS</p>
-        	    <a href="https://github.com/Jujudormah/ChartJS-Implementation" class="btn btn-outline-secondary"> See the code</a> <!-- ADD LINK TO PROJECT HERE -->
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Chart.js Implementation</h3>
+            <p class="project-desc">
+              Data visualization project integrating Chart.js to render dynamic
+              datasets in a clean, interactive web interface.
+            </p>
+            <div class="project-tools">
+              <span class="tool-chip">JavaScript</span>
+              <span class="tool-chip">Chart.js</span>
+              <span class="tool-chip">HTML</span>
+              <span class="tool-chip">CSS</span>
             </div>
+          </div>
         </div>
-    </div>
 
-    <div class="col-md-4">
-        <div class="card">
-            <div class="hovereffect">
-                <img class="card-img-top" src="img/Portfolio.png" alt="">
-                <div class="overlay">
-                <h2>Portfolio Site</h2>
-                <a class="info" href="https://github.com/Jujudormah/Digital-Portfolio">See the code</a>
-                </div>
+        <div class="project-card reveal">
+          <div class="project-thumb">
+            <img src="img/Portfolio.png" alt="Portfolio Site" />
+            <div class="project-overlay">
+              <a
+                class="overlay-link"
+                href="https://github.com/Jujudormah/Digital-Portfolio"
+                target="_blank"
+                >View Code</a
+              >
             </div>
-        
-            <div class="card-body">
-                <h4 class="card-title">Portfolio Site</h4>
-        	    <p class="card-text">An interactive website to showcase my projects, code samples, and technical skills alongside information about me.</p>
-        	    <p class="card-text">Tools: JavaScript, HTML, CSS, Bootstrap</p>
-        	    <a href="https://github.com/Jujudormah/Digital-Portfolio" class="btn btn-outline-secondary"> See the code</a> <!-- ADD LINK TO PROJECT HERE -->
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Portfolio Site</h3>
+            <p class="project-desc">
+              This site — an interactive showcase of my projects, technical
+              skills, and background, built with Bootstrap and vanilla JS.
+            </p>
+            <div class="project-tools">
+              <span class="tool-chip">JavaScript</span>
+              <span class="tool-chip">HTML</span>
+              <span class="tool-chip">CSS</span>
             </div>
+          </div>
         </div>
-    </div>
-    
-    <div class="col-md-4">
-        <div class="card">
-            <div class="hovereffect">
-                <img class="card-img-top" src="img/Monitor.png" alt="">
-                <div class="overlay">
-                <h2>Future Projects</h2>
-                </div>
-            </div>
-        
-            <div class="card-body">
-                <h4 class="card-title">Future Projects</h4>
-        	    <p class="card-text">Other projects in development:</p> 
-        	    <li>Developing a movie streaming app using React to demonstrate clean and efficient coding practices</li>
-        	    <li>Future projects using modern frameworks like React or Vue.js</li>
-        	    
-            </div>
+
+        <div class="project-card future-card reveal">
+          <div class="project-body" style="padding-top: 2rem">
+            <h3
+              class="project-title"
+              style="
+                font-family: &quot;DM Serif Display&quot;, serif;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+              ">
+              Coming Soon
+            </h3>
+            <ul class="future-list">
+              <li>
+                Movie streaming app built with React, with API integration and
+                watchlist features
+              </li>
+              <li>
+                Additional projects exploring modern frameworks and tooling
+              </li>
+            </ul>
+          </div>
         </div>
-    </div>
-</div>
-</div>
-</section>
+      </div>
+    </section>
 
-<section id="section-about">
-<div class="container-fluid padding">
-<div class="row padding">
-    <div class="col-lg-6">
-        <h1 class="display-4 text-center">About Me</h1>
-        <hr class="light">
-        <p style="margin-left: 1.2rem;">My name is Gustavo Diaz and I'm a recent Computer Science graduate from California State University, San Bernardino. I am entering my second year of programming experience in: JavaScript, HTML, CSS and a few others. My familiar languages I have worked with are: Vue.js, React, Chart.js, and SQL to name a few.</p>
-
-        <p style="margin-left: 1.2rem;">I am eager to apply my skills and curiosity to a Software Developer role. I'm a dedicated learner wanting to contribute to a fast-paced development team. In the vast world of coding knowledge, I am curious to learn the intricacies of each problem and design I encounter.</p>
-        
-        <p style="margin-left: 1.2rem;">Some interests of mine within the Computer Science field are: Artificial Intelligence, Game Design, and learning Web Designs.</p>
-        <br>
-
-        <a class="btn btn-primary" data-toggle="collapse" href="#aboutMeInfo" style="margin-left: 1.2rem;">Learn More</a>
-        
-        <div class="collapse" id="aboutMeInfo" > 
-        <p style="margin-left: 1.2rem; margin-top: 1rem;">If I'm not coding, I'm gaming. </p>
-    
+    <section id="about">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="section-label">Background</p>
+          <h2 class="section-title">About Me</h2>
+          <p>
+            I'm Gustavo Diaz — a Computer Science graduate from Cal State San
+            Bernardino with two years of hands-on experience in JavaScript,
+            HTML/CSS, and the surrounding ecosystem of modern web tools.
+          </p>
+          <p>
+            I'm eager to bring my skills to a software development team. I'm
+            drawn to problems that sit at the intersection of clean code and
+            thoughtful UI.
+          </p>
+          <p>
+            Within CS, I'm especially interested in Artificial Intelligence,
+            Game Design, and advancing my front-end craft. Away from the screen,
+            I'm a gamer and perpetual learner.
+          </p>
         </div>
-    </div>
-    <div class="col-lg-6">
-    	<img src="img/GradPic.jpg" class="img-fluid">
-    </div>
-</div>
-</div>
+        <div class="about-img reveal">
+          <img src="img/GradPic.jpg" alt="Gustavo Diaz graduation photo" />
+        </div>
+      </div>
+    </section>
 
-<div class="collapse" id="aboutMeInfo" > 
-    <p>Away from the computer, I enjoy a wide spectrum of things. From cycling to painting, </p>
-</div>
+    <section id="skills">
+      <div class="reveal">
+        <p class="section-label">What I work with</p>
+        <h2 class="section-title">Skills</h2>
+      </div>
+      <div class="skills-layout">
+        <div>
+          <div class="skill-group reveal">
+            <div class="skill-group-title">Proficient</div>
+            <div class="skill-pills">
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">C++</span>
+              <span class="skill-pill">HTML5 / CSS</span>
+              <span class="skill-pill">React</span>
+            </div>
+          </div>
+          <div class="skill-group reveal">
+            <div class="skill-group-title">Familiar</div>
+            <div class="skill-pills">
+              <span class="skill-pill familiar">Vue.js</span>
+              <span class="skill-pill familiar">JSON / AJAX</span>
+              <span class="skill-pill familiar">Chart.js</span>
+              <span class="skill-pill familiar">Python</span>
+              <span class="skill-pill familiar">SQL</span>
+              <span class="skill-pill familiar">Docker</span>
+              <span class="skill-pill familiar">Git / GitHub</span>
+              <span class="skill-pill familiar">Figma</span>
+              <span class="skill-pill familiar">Jira</span>
+              <span class="skill-pill familiar">DevTools</span>
+            </div>
+          </div>
+        </div>
+        <div class="skills-img reveal">
+          <img src="img/MeAndMom.png" alt="Gustavo with family" />
+        </div>
+      </div>
+    </section>
 
-<hr class="my-4">
-</section>
+    <section id="connect">
+      <p class="section-label">Get in touch</p>
+      <h2 class="section-title reveal">Let's work together</h2>
+      <p class="connect-sub reveal">
+        Open to full-time software engineering roles and always happy to talk
+        code, projects, or ideas.
+      </p>
+      <a class="connect-email reveal" href="mailto:gustavo_diaz14@yahoo.com"
+        >gustavo_diaz14@yahoo.com</a
+      >
+      <div class="social-row reveal">
+        <a
+          class="social-btn"
+          href="https://github.com/Jujudormah"
+          target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a
+          class="social-btn"
+          href="https://www.linkedin.com/in/gustavo-d-8ab521219/"
+          target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </section>
 
-<figure>
-    <div class="fixed-wrap">
-    	<div id="fixed">
-    	</div>
-    </div>
-</figure>
+    <footer>
+      <span>© 2025 Gustavo Diaz</span>
+      <span>Fontana, CA</span>
+      <span>References available upon request</span>
+    </footer>
 
-<section id="section-skills">
-<div class="container-fluid padding">
-<div class="row welcome text-center">
-    <div class="col-12">
-    	<h2 class="display-4">Skills</h2>
-    </div>
-    <hr> </hr>
-    <div class="col-12">
-    	<p class="lead"></p>
-    </div>
-</div>
-</div>
+    <script>
+      const toggle = document.getElementById("navToggle");
+      const links = document.getElementById("navLinks");
+      toggle.addEventListener("click", () => links.classList.toggle("open"));
+      links
+        .querySelectorAll("a")
+        .forEach((a) =>
+          a.addEventListener("click", () => links.classList.remove("open")),
+        );
 
-<div class="container-fluid padding">
-<div class="row padding">
-    <div class="col-lg-6">
-        <h3>Proficient:</h3>
-        <ul>
-        <ol>JavaScript</ol>
-        <ol>C++</ol>
-        <ol>HTML5/CSS</ol>
-        <ol>React</ol>
-        </ul>
-
-        <h3>Familiar:</h3>
-        <ul>
-        <ol>Vue.js</ol>
-        <ol>JSON/AJAX</ol>
-        <ol>Chart.js</ol>
-        <ol>Python</ol>
-        <ol>SQL</ol>
-        <ol>Jira</ol>
-        <ol>Docker</ol>
-        <ol>DevTools</ol>
-        <ol>Git (GitHub)</ol>
-        <ol>Figma</ol>
-        </ul>
-
-        <br>
-    </div>
-    <div class="col-lg-6">
-    	<img src="img/MeAndMom.png" class="img-fluid">
-    </div>
-</div>
-<hr class="my-4">
-</div>
-</section>
-
-<section id="section-connect">
-<div class="container-fluid padding">
-<div class="row text-center padding">
-    <div class="col-12">
-    	<h2 class="display-4">Connect</h2>
-    	<hr class="light">
-    </div>
-    <div class="col-12 social padding">
-    	<a href="https://github.com/Jujudormah"><i class="fab fa-github"></i></a>
-    	<a href="https://www.linkedin.com/in/gustavo-d-8ab521219/"><i class="fab fa-linkedin"></i></a>
-    </div>
-</div>
-</div>
-</section>
-
-<footer>
-<div class="container-fluid padding">
-<div class="row text-center">
-	<div class="col-md-4">
-		<hr class="light">
-		<h5>Contact</h5>
-		<hr class="light">
-		<p>gustavo_diaz14@yahoo.com</p>
-		
-	</div>
-	<div class="col-md-4">
-		<hr class="light">
-		<h5>Location</h5>
-		<hr class="light">
-		<p>Fontana, CA 92335</p>
-		
-	</div>
-	<div class="col-md-4">
-		<hr class="light">
-		<h5>References</h5>
-		<hr class="light">
-		<p>Available Upon Request</p>
-	</div>
-	<div class="col-12">
-	<hr class="light">
-	<p>Copyright &#169 Gustavo Diaz</p>
-    </div>
-   
-    <script type="text/javascript">
-     $(function() {
-     var scroll = new SmoothScroll('a[href*="#section-"]');
-    });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
     </script>
-
-</div>
-</div>
-</footer>
-
-</body>
+  </body>
 </html>
-

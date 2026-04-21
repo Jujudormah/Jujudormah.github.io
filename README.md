@@ -1,2 +1,5 @@
 # Digital-Portfolio
-A simple digital portfolio to house my projects, resume, and contact information.
+
+Live site → [[link](https://jujudormah.github.io/)]
+Built with JavaScript, HTML, CSS. Responsive across all screen sizes.
+Showcases front-end projects including a Forkify recipe app and a banking application.
